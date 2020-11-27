@@ -9,11 +9,13 @@ function betterUIMod:OnRender(dt)
     if betterUIMod.TalkUI then 
         if talkUIExists ~= betterUIMod.markedUpChat then 
             if talkUIExists then 
-                betterUIMod.TalkUI:MarkUp(CS.Wnd_JianghuTalk.Instance.UIInfo)
                 betterUIMod.markedUpChat = true 
+                betterUIMod.TalkUI:MarkUp(CS.Wnd_JianghuTalk.Instance.UIInfo)
             elseif debug then 
                 betterUIMod.markedUpChat = false 
             end
+        else
+            betterUIMod.TalkUI:OnRender(CS.Wnd_JianghuTalk.Instance.UIInfo, dt)
         end
     end
 end
